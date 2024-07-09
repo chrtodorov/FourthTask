@@ -2,8 +2,9 @@
 
 public class Shift
 {
-    public int ShiftId { get; set; }
+    public int Id { get; set; }
+    
     public string Name { get; set; }
-
-    public ICollection<EmployeeShift> EmployeeShifts { get; set; }
+    
+    public DateTime Date { get; set; }
 }

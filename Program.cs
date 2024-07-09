@@ -17,8 +17,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IShiftRepository, ShiftRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllers();
 

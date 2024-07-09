@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Interfaces;
 using WebApplication1.Repositories;
-using WebApplication1.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +19,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IShiftRepository, ShiftRepository>();
-
 builder.Services.AddControllers();
 
 var app = builder.Build();

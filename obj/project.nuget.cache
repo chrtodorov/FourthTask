@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tJ5qyn2VZdIVdqtI8gXISTko3IAEzDOx7B9pnIYUMYANgFvdhYQvOKuQDtC5x1NzGFrXyg8QL8LCBxy/qmlvpQ==",
+  "dgSpecHash": "GAx/b4Yq5Zisp1fW682vKCZF4A5nUOXflFjDt8HveNBQjFKtddqaq60GoMIhyE7tnqgsU8ROZ+qs7H9CCuDw0Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\ctodorov\\RiderProjects\\WebApplication1\\FourthTask\\FourthTask.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ctodorov\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ctodorov\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ctodorov\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\ctodorov\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

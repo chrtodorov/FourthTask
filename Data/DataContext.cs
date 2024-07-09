@@ -11,24 +11,11 @@ public class DataContext : DbContext
     }
 
     public DbSet<Employee> Employees { get; set; }
-    public DbSet<Role> Roles { get; set; }
     public DbSet<Shift> Shifts { get; set; }
+    public DbSet<Role> Roles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Employee>()
-            .HasMany(e => e.Roles)
-            .WithMany(r => r.Employees);
-
-        modelBuilder.Entity<Employee>()
-            .HasMany(e => e.Shifts)
-            .WithOne(s => s.Employee)
-            .HasForeignKey(s => s.EmployeeId);
-
-        modelBuilder.Entity<Shift>()
-            .HasOne(s => s.Role)
-            .WithMany()
-            .HasForeignKey(s => s.RoleId)
-            .IsRequired();
+        base.OnModelCreating(modelBuilder);
     }
 }

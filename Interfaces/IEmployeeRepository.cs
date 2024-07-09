@@ -4,9 +4,9 @@ namespace WebApplication1.Interfaces;
 
 public interface IEmployeeRepository
 {
-    IEnumerable<Employee> GetAllEmployees();
-    Employee GetEmployeeById(int id);
-    void AddEmployee(Employee employee);
-    void UpdateEmployee(Employee employee);
-    void DeleteEmployee(int id);
+    Task<IEnumerable<Employee>> GetAllAsync();
+    Task<Employee> GetByIdAsync(int id);
+    Task<Employee> AddAsync(Employee employee);
+    Task UpdateAsync(Employee employee);
+    Task DeleteAsync(int id);
 }

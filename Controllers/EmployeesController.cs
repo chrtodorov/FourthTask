@@ -18,45 +18,42 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Employee>> GetAllEmployees()
+    public async Task<ActionResult<IEnumerable<Employee>>> GetAll()
     {
-        return Ok(_employeeRepository.GetAllEmployees());
+        return Ok(await _employeeRepository.GetAllAsync());
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Employee> GetEmployeeById(int id)
+    public async Task<ActionResult<Employee>> Get(int id)
     {
-        var employee = _employeeRepository.GetEmployeeById(id);
+        var employee = await _employeeRepository.GetByIdAsync(id);
         if (employee == null)
-        {
             return NotFound();
-        }
+
         return Ok(employee);
     }
 
     [HttpPost]
-    public ActionResult<Employee> PostEmployee(Employee employee)
+    public async Task<ActionResult<Employee>> Post([FromBody] Employee employee)
     {
-        _employeeRepository.AddEmployee(employee);
-        return CreatedAtAction("GetEmployeeById", new { id = employee.EmployeeId }, employee);
+        var newEmployee = await _employeeRepository.AddAsync(employee);
+        return CreatedAtAction(nameof(Get), new { id = newEmployee.EmployeeId }, newEmployee);
     }
 
     [HttpPut("{id}")]
-    public IActionResult PutEmployee(int id, Employee employee)
+    public async Task<IActionResult> Put(int id, [FromBody] Employee employee)
     {
         if (id != employee.EmployeeId)
-        {
             return BadRequest();
-        }
 
-        _employeeRepository.UpdateEmployee(employee);
+        await _employeeRepository.UpdateAsync(employee);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteEmployee(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        _employeeRepository.DeleteEmployee(id);
+        await _employeeRepository.DeleteAsync(id);
         return NoContent();
     }
 }
